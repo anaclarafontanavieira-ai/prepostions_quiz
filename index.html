@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepositions Exercise</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        h2 {
+            color: #8e44ad;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        /* Word Bank Styling */
+        .word-bank {
+            border: 2px solid #8e44ad;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 30px;
+            background-color: #fbf7fc;
+        }
+
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            text-align: center;
+        }
+
+        .word-item {
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Exercise Table Grid Styling */
+        .exercise-table {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid #444;
+            border-left: 1px solid #444;
+            margin-bottom: 25px;
+        }
+
+        .cell {
+            border-right: 1px solid #444;
+            border-bottom: 1px solid #444;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            min-height: 260px;
+            box-sizing: border-box;
+        }
+
+        .cell.empty {
+            background-color: #fdfdfd;
+        }
+
+        /* SVG Image Frame Container */
+        .image-container {
+            width: 100%;
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .image-container svg {
+            width: 100%;
+            height: 100%;
+            max-width: 180px;
+        }
+
+        /* Sentence Text & Input Box Controls */
+        .sentence {
+            font-size: 15px;
+            width: 100%;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .input-gap {
+            border: none;
+            border-bottom: 2px dashed #8e44ad;
+            width: 100px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            color: #2c3e50;
+            outline: none;
+            background: transparent;
+            padding: 0 2px;
+        }
+
+        .input-gap:focus {
+            border-bottom-color: #3498db;
+        }
+
+        /* Status Colors */
+        .correct {
+            border-bottom: 2px solid #27ae60 !important;
+            color: #27ae60;
+        }
+
+        .incorrect {
+            border-bottom: 2px solid #e74c3c !important;
+            color: #e74c3c;
+            text-decoration: line-through;
+        }
+
+        .feedback-marker {
+            font-weight: bold;
+            margin-left: 4px;
+        }
+        .feedback-marker.right { color: #27ae60; }
+        .feedback-marker.wrong { color: #e74c3c; font-size: 13px; font-weight: normal; }
+
+        /* Actions & Scoring */
+        .action-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .btn-check {
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            padding: 12px 45px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-check:hover {
+            background-color: #732d91;
+            transform: translateY(-1px);
+        }
+
+        #score-display {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            display: none;
+            background: #eef9f2;
+            padding: 10px 25px;
+            border-radius: 20px;
+            border: 1px solid #27ae60;
+        }
+
+        /* Responsive Layout Adjustments */
+        @media (max-width: 900px) {
+            .exercise-table { grid-template-columns: repeat(2, 1fr); }
+            .word-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 520px) {
+            .exercise-table { grid-template-columns: 1fr; }
+            .word-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+.exercise-img {
+    max-width: 100%;
+    max-height: 110px;
+    object-fit: contain;
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Complete each sentence with the correct preposition from the box.</h2>
+
+    <div class="word-bank">
+        <div class="word-grid">
+            <div class="word-item">above</div>
+            <div class="word-item">across from</div>
+            <div class="word-item">behind</div>
+            <div class="word-item">between</div>
+            <div class="word-item">in</div>
+            <div class="word-item">in front of</div>
+            <div class="word-item">near</div>
+            <div class="word-item">next to</div>
+            <div class="word-item">on</div>
+            <div class="word-item">under</div>
+        </div>
+    </div>
+
+<div class="exercise-table">
+        
+        <div class="cell">
+            <div class="image-container">
+                <img src="images/pic1.png" alt="Light above table" class="exercise-img">
+            </div>
+            <div class="sentence">
+                1. The light is <input type="text" class="input-gap" data-answer="above"> the table.
+                <span class="feedback-marker"></span>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="image-container">
+                <img src="images/pic2.png" alt="Keys between books" class="exercise-img">
+            </div>
+            <div class="sentence">
+                2. The keys are <input type="text" class="input-gap" data-answer="between"> the books.
+                <span class="feedback-marker"></span>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="image-container">
+                <img src="images/pic3.png" alt="Pen next to book" class="exercise-img">
+            </div>
+            <div class="sentence">
+                3. The pen is <input type="text" class="input-gap" data-answer="next to"> the book.
+                <span class="feedback-marker"></span>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="image-container">
+                <img src="images/pic4.png" alt="Pen in glass" class="exercise-img">
+            </div>
+            <div class="sentence">
+                4. The pen is <input type="text" class="input-gap" data-answer="in"> the glass.
+                <span class="feedback-marker"></span>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="image-container">
+                <img src="images/pic5.png" alt="Pen in front of book" class="exercise-img">
+            </div>
+            <div class="sentence">
+                5. The pen is <input type="text" class="input-gap" data-answer="in front of"> the book.
+                <span class="feedback-marker"></span>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="image-container">
+                <img src="images/pic6.png" alt="Keys on table" class="exercise-img">
+            </div>
+            <div class="sentence">
+                6. The keys are <input type="text" class="input-gap" data-answer="on"> the table.
+                <span class="feedback-marker"></span>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="image-container">
+                <img src="images/pic7.png" alt="Pen behind glass" class="exercise-img">
+            </div>
+            <div class="sentence">
+                7. The pen is <input type="text" class="input-gap" data-answer="behind"> the glass.
+                <span class="feedback-marker"></span>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="image-container">
+                <img src="images/pic8.png" alt="Backpack under table" class="exercise-img">
+            </div>
+            <div class="sentence">
+                8. The backpack is <input type="text" class="input-gap" data-answer="under"> the table.
+                <span class="feedback-marker"></span>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="image-container">
+                <img src="images/pic9.png" alt="Keys near book" class="exercise-img">
+            </div>
+            <div class="sentence">
+                9. The keys are <input type="text" class="input-gap" data-answer="near"> the book.
+                <span class="feedback-marker"></span>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="image-container">
+                <img src="images/pic10.png" alt="Chairs across from each other" class="exercise-img">
+            </div>
+            <div class="sentence">
+                10. The red chair is <input type="text" class="input-gap" data-answer="across from"> the green chair.
+                <span class="feedback-marker"></span>
+            </div>
+        </div>
+
+        <div class="cell empty"></div>
+        <div class="cell empty"></div>
+    </div>
+
+    <div class="action-area">
+        <button class="btn-check" onclick="checkAnswers()">Check Answers</button>
+        <div id="score-display"></div>
+    </div>
+</div>
+
+<script>
+    function checkAnswers() {
+        const inputs = document.querySelectorAll('.input-gap');
+        let score = 0;
+        const total = inputs.length;
+
+        inputs.forEach(input => {
+            const correctAnswer = input.getAttribute('data-answer').trim().toLowerCase();
+            const userAnswer = input.value.trim().toLowerCase();
+            const marker = input.nextElementSibling;
+
+            if (userAnswer === correctAnswer) {
+                score++;
+                input.className = "input-gap correct";
+                marker.innerHTML = " ✓";
+                marker.className = "feedback-marker right";
+            } else {
+                input.className = "input-gap incorrect";
+                marker.innerHTML = ` ✗ (${correctAnswer})`;
+                marker.className = "feedback-marker wrong";
+            }
+        });
+
+        const scoreDisplay = document.getElementById('score-display');
+        scoreDisplay.innerHTML = `Your Score: ${score} / ${total}`;
+        scoreDisplay.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
